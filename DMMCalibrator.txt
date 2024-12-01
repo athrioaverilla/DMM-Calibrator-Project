@@ -1,0 +1,214 @@
+# import pyvisa
+# def display_string(dmm, display_text):
+#     dmm.write(f"DISPLAY:TEXT '{display_text}'")
+#
+# def main():
+#     rm = pyvisa.ResourceManager()
+#     dmm_address1 = 'GPIB1::5::INSTR'
+#     dmm_address2 = 'GPIB1::4::INSTR'
+#     # Replace with your DMM address
+#     dmm1 = rm.open_resource(dmm_address1)
+#     dmm2 = rm.open_resource(dmm_address2)
+#
+#     try:
+#         display_string(dmm2, "napaka angas")
+#     except Exception as e:
+#         print("Error:", e)
+#     finally:
+#         # dmm1.close()
+#         dmm2.close()
+
+import pyvisa
+import time
+
+rm = pyvisa.ResourceManager()
+fluke = rm.open_resource("GPIB1::5::INSTR")  # Adjust the GPIB address as needed
+multimeter = rm.open_resource("GPIB1::22::INSTR")
+# multimeter = rm.open_resource("GPIB0::22::INSTR")
+
+# devices = rm.list_resources()
+# print("Connect devices:")
+# for device in devices:
+#     print(device)
+
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT -100 mV; OPER")
+# time.sleep(7)
+# .
+#
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT 100 mV; OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:DC -1')
+# multimeter.write(':MEASURE:VOLT:DC -1')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# voltage_100mV = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (100 mV):  {voltage_100mV} ")
+# time.sleep(7)
+#
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT 1 V; OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:DC 1')
+# multimeter.write(':MEASURE:VOLT:DC 1')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# voltage_1V = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (1 V)   :   {voltage_1V} ")
+# time.sleep(7)
+#
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT 10 V; OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:DC 10')
+# multimeter.write(':MEASURE:VOLT:DC 10')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# voltage_10V = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (10 V)  :  {voltage_10V} ")
+# time.sleep(7)
+#
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT -10 V; OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:DC -10')
+# multimeter.write(':MEASURE:VOLT:DC -10')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# voltage_10V = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (-10 V) :  {voltage_10V} ")
+# time.sleep(7)
+#
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT 100 V")
+# time.sleep(3)
+# fluke.write("OPER ")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:DC 100')
+# multimeter.write(':MEASURE:VOLT:DC 100')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# voltage_100V = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (100 V) :  {voltage_100V} ")
+# time.sleep(7)
+#
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("OUT 1000 V ")
+# time.sleep(7)
+# fluke.write("OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:DC 1000')
+# multimeter.write(':MEASURE:VOLT:DC 1000')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# voltage_1000 = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (1000 V): {voltage_1000} ")
+
+# #Fluke AC Volts output
+# fluke.write("OUT 100 MV, 1000 kHZ")
+# time.sleep(7)
+# fluke.write("OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:AC 1')
+# multimeter.write(':MEASURE:VOLT:AC 1')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# ACvoltage_1000 = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (100 AC Voltage): {ACvoltage_1000} ")
+#
+# fluke.write("OUT 100 MV, 50000 kHZ")
+# time.sleep(7)
+# fluke.write("OPER")
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:AC 1')
+# multimeter.write(':MEASURE:VOLT:AC 1')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# ACvoltage_1000 = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (100 mv AC Voltage): {ACvoltage_1000} ")
+#
+#
+# fluke.write("*RST")
+# # fluke.write("OUT 100 MV;OUT 30 KHZ")
+#
+# fluke.write("OUT 100000000  OHM")
+# time.sleep(7)
+# fluke.write("OPER")
+
+
+# time.sleep(7)
+# multimeter.write('*RST')
+# multimeter.write(':CONF:VOLT:AC 1')
+# multimeter.write(':MEASURE:VOLT:AC 1')
+# multimeter.write(':SENS:VOLT:DC:NPLC 5')
+# ACvoltage_1000 = float(multimeter.query(':READ?'))
+# print(f"   DC Voltage reading (100 AC Voltage): {ACvoltage_1000} ")
+#
+# Dito
+
+# fluke.write("*RST")
+# time.sleep(7)
+# fluke.write("EXTSENSE ON")
+# fluke.write("OUT 100 OHM")
+# time.sleep(7)
+# fluke.write("OPER")
+# time.sleep(20)
+# # fluke.write("OPER"
+# time.sleep(1)
+# multimeter.write('*RST')
+# multimeter.write("CONF:VOLT:AC 100")
+# multimeter.write("INIT")
+# ACvoltage_100 = multimeter.query("FETCH?")
+# print(f"   DC Voltage reading (100 AC Voltage): {ACvoltage_100} ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# flukeAC = fluke.query("OUT?")
+# fluke.write("STBY")
+# print(flukeAC)
+#
+# #Fluke Resistance
+# #(NOT SURE)
+# flukeresist = fluke.query("OHMSREF? CAL")
+# print(flukeresist)
+# flukeresist = fluke.query("OHMSREF? CHECK")
+# print(flukeresist)
+# flukeresist = fluke.query("OHMSREF? PREV")
+# print(flukeresist)
+
+fluke.write("*RST")
+fluke.write(" OUT -100 MA")
+fluke.write("OPER")
